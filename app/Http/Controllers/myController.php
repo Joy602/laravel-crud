@@ -35,4 +35,23 @@ class myController extends Controller
         $pDadta = product::all();
         return view('read',['data'=>$pDadta]);
     }
+
+    // update product function
+    function updateOrDelete(Request $req){
+        $id = $req->get('id');
+        $name = $req->get('name');
+        $price = $req->get('price');
+
+        // if update button is pressed
+        if($req->get('update')=='Update'){
+            return view('update',['pid'=>$id,'pname'=>$name,'pprice'=>$price]);
+
+
+        // if delete btn pressed
+        }else{
+             $prod = product::find($id);
+             $prod->delete();
+             return redirect('/read');
+        }
+    }
 }

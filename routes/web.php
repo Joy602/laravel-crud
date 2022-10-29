@@ -23,3 +23,7 @@ Route::view('/','insert');
 Route::post('insertData',[myController::class, 'insert' ]);
 
 Route::get('/read',[myController::class, 'readData']);
+
+Route::view('/update','update');
+
+Route::get('updateDelete',[myController::class, 'updateOrDelete']);
