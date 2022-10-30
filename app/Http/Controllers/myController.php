@@ -53,5 +53,20 @@ class myController extends Controller
              $prod->delete();
              return redirect('/read');
         }
+
+        function update(Request $req){
+            $ID = $req->get('id');
+            $Name = $req->get('name');
+            $Price = $req->get('price');
+
+            $prod = product::find($ID);
+
+            // PName, PPrice  is column name from DB
+            $prod->PName = $Name;
+            $prod->PPrice = $Price;
+            $prod->save();
+
+            return redirect('/read');
+        }
     }
 }

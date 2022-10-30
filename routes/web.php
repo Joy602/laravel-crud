@@ -27,3 +27,5 @@ Route::get('/read',[myController::class, 'readData']);
 Route::view('/update','update');
 
 Route::get('updateDelete',[myController::class, 'updateOrDelete']);
+
+Route::get('updateData',[myController::class,'update']);
